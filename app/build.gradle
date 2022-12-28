@@ -1,0 +1,73 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.deepwaterooo.tetris'
+    compileSdk 31
+    buildToolsVersion '31.0.0'
+
+    defaultConfig {
+        applicationId "com.deepwaterooo.tetris"
+        minSdk 26
+        //noinspection ExpiredTargetSdkVersion
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        ndk {
+            abiFilters 'armeabi-v7a', 'x86'
+        }
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation files('libs\\classes.jar') // activities
+    implementation files('libs\\unity-classes.jar') // unity classes 
+    implementation files('libs\\dwsdk-debug.aar') // aar
+
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.6.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+
+    // // 这里同样还需要添加上项目中用到的各种第三方库
+    // implementation 'com.android.support:appcompat-v7:26.0.1'
+    // implementation 'com.android.support:support-v4:26.0.1'
+    // implementation 'com.android.support:design:26.0.1'
+    // implementation 'com.android.support:support-vector-drawable:26.0.1'
+    // implementation 'com.android.support:animated-vector-drawable:26.0.1'
+    
+    implementation 'com.android.support:multidex:1.0.3'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    implementation 'com.google.code.gson:gson:2.6.2'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+    // implementation 'uk.co.chrisjenx:calligraphy:2.2.0'
+    implementation 'io.github.inflationx:calligraphy3:3.1.1'
+    implementation 'io.github.inflationx:viewpump:2.0.3'
+
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+    implementation 'com.soundcloud.android:android-crop:1.0.1@aar'
+    implementation 'androidx.work:work-runtime:2.7.1'
+}
