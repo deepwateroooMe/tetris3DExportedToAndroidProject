@@ -44,7 +44,18 @@
     </activity>
     <!-- <meta-data android:name="android.app.lib_name" android:value="unity" /> -->
     <!-- <meta-data android:name="com.deepwaterooo.DWUnityActivity" android:value="true" /> -->
-    <activity android:name="com.deepwaterooo.DWSDK"></activity>
+    <!--    <activity android:name="com.deepwaterooo.DWSDK"></activity>-->
+
+    <!-- can it be found? 这个地方的注册一定不能丢，这里注册得不对, 游戏端,安卓SDK端,但是同一个process -->
+    <!-- tools:ignore="ExtraText,MissingClass" -->
+    <!-- android:process=":remote" -->
+    <!-- tools:ignore="MissingClass" -->
+    <receiver android:name="com.deepwaterooo.sdk.utils.UABroadcaseReceiver"
+              android:exported="true">　
+    <intent-filter>
+      <action android:name="selfDefineReceiver"/>
+    </intent-filter>
+    </receiver>
 
     <meta-data android:name="unity.build-id" android:value="6f3b9a05-74e8-4906-ab7d-f9abb9791268" />
     <meta-data android:name="unity.splash-mode" android:value="0" />
